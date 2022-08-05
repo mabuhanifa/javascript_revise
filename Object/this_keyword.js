@@ -1,6 +1,6 @@
 //implicit binding
 
-let country = {
+var country = {
   name: "Bangladesh",
   area: "147570sqkm",
   capital: "Dhaka",
@@ -35,7 +35,7 @@ Karim.printName();
 Rahim.printName();
 
 //implicit binding
-let Person1 = function (name, age) {
+var Person1 = function (name, age) {
   return {
     name: name,
     age: age,
@@ -50,7 +50,7 @@ var rahim = Person1("Rahim", 35);
 console.log(rahim.printName());
 
 //implicit binding
-let Person2 = function (name, age) {
+var Person2 = function (name, age) {
   return {
     name: name,
     age: age,
@@ -71,7 +71,7 @@ var rahim = Person("Rahim", 35);
 console.log(rahim.father.printName());
 
 //explicit binding
-let printName1 = function () {
+var printName1 = function () {
   return this.name;
 };
 
@@ -84,11 +84,11 @@ console.log(printName1.call(Rahim));
 
 //explicit binding
 
-let v11 = "Kind";
-let v21 = "Honest";
-let v31 = "Hard Working";
+var v11 = "Kind";
+var v21 = "Honest";
+var v31 = "Hard Working";
 
-let printName2 = function (v1, v2, v3) {
+var printName2 = function (v1, v2, v3) {
   return `${this.name} is ${v1} , ${v2} and ${v3}`;
 };
 
@@ -101,11 +101,11 @@ console.log(printName2.call(Rahim, v11, v21, v31));
 
 //explicit binding
 //@apply
-let v10 = "Kind";
-let v20 = "Honest";
-let v30 = "Hard Working";
+var v10 = "Kind";
+var v20 = "Honest";
+var v30 = "Hard Working";
 
-let printName3 = function (v1, v2, v3) {
+var printName3 = function (v1, v2, v3) {
   return `${this.name} is ${v1} , ${v2} and ${v3}`;
 };
 
@@ -120,11 +120,11 @@ console.log(printName.apply(Rahim, v));
 
 //explicit binding
 //@bind
-let v1 = "Kind";
-let v2 = "Honest";
-let v3 = "Hard Working";
+var v1 = "Kind";
+var v2 = "Honest";
+var v3 = "Hard Working";
 
-let printName = function (v1, v2, v3) {
+var printName = function (v1, v2, v3) {
   return `${this.name} is ${v1} , ${v2} and ${v3}`;
 };
 
@@ -137,14 +137,29 @@ var v = [v1, v2, v3];
 var newFun = printName.bind(Rahim, v1, v2, v3);
 console.log(newFun());
 
-//new binding
+//new binding like class methods
 
-let Person = function (name, age) {
+var Person = function (name, age) {
   this.name = name;
   this.age = age;
   return `${name} is ${age} years old`;
 };
 
-var sakib = new Person("Sakib",25);
+var sakib = new Person("Sakib", 25);
 
 console.log(sakib());
+
+//Window binding
+var printName = function () {
+  return this.name; //undefined `refers to window object`
+};
+
+console.log(printName());
+
+("use strict");
+
+var printName = function () {
+  return this.name; //undefined `refers to window object`
+};
+
+console.log(printName());
