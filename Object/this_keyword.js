@@ -84,6 +84,23 @@ console.log(printName1.call(Rahim));
 
 //explicit binding
 
+let v11 = "Kind";
+let v21 = "Honest";
+let v31 = "Hard Working";
+
+let printName2 = function (v1, v2, v3) {
+  return `${this.name} is ${v1} , ${v2} and ${v3}`;
+};
+
+var Rahim = {
+  name: "Rahim",
+  age: 25,
+};
+
+console.log(printName2.call(Rahim, v11, v21, v31));
+
+//explicit binding
+//@apply
 let v1 = "Kind";
 let v2 = "Honest";
 let v3 = "Hard Working";
@@ -97,4 +114,6 @@ var Rahim = {
   age: 25,
 };
 
-console.log(printName.call(Rahim, v1, v2, v3));
+var v = [v1, v2, v3];
+
+console.log(printName.apply(Rahim, v));
