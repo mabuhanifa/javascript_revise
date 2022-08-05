@@ -69,3 +69,15 @@ let Person = function (name, age) {
 var rahim = Person("Rahim", 35);
 
 console.log(rahim.father.printName());
+
+//explicit binding
+let printName = function () {
+  return this.name;
+};
+
+var Rahim = {
+  name: "Rahim",
+  age: 25,
+};
+
+console.log(printName.call(Rahim));
