@@ -159,7 +159,17 @@ console.log(printName());
 ("use strict");
 
 var printName = function () {
-  return this.name; //undefined `refers to window object`
+  console.log(this); //undefined error message this is undefined`
+  return this.name;  //undefined `refers to window object`
+};
+
+console.log(printName());
+
+
+//without ("use strict");
+var printName = function () {
+  console.log(window === this); // returns true
+  return this.name;  //undefined
 };
 
 console.log(printName());
