@@ -33,3 +33,39 @@ printPersonName(Karim);
 
 Karim.printName();
 Rahim.printName();
+
+//implicit binding
+let Person1 = function (name, age) {
+  return {
+    name: name,
+    age: age,
+    printName: function () {
+      return this.name;
+    },
+  };
+};
+
+var rahim = Person1("Rahim", 35);
+
+console.log(rahim.printName());
+
+//implicit binding
+let Person = function (name, age) {
+  return {
+    name: name,
+    age: age,
+    printName: function () {
+      return this.name;
+    },
+    father: {
+      name: "Abu Abdal",
+      printName: function () {
+        return this.name;
+      },
+    },
+  };
+};
+
+var rahim = Person("Rahim", 35);
+
+console.log(rahim.father.printName());
