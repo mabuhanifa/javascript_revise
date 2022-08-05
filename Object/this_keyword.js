@@ -50,7 +50,7 @@ var rahim = Person1("Rahim", 35);
 console.log(rahim.printName());
 
 //implicit binding
-let Person = function (name, age) {
+let Person2 = function (name, age) {
   return {
     name: name,
     age: age,
@@ -136,3 +136,15 @@ var Rahim = {
 var v = [v1, v2, v3];
 var newFun = printName.bind(Rahim, v1, v2, v3);
 console.log(newFun());
+
+//new binding
+
+let Person = function (name, age) {
+  this.name = name;
+  this.age = age;
+  return `${name} is ${age} years old`;
+};
+
+var sakib = new Person("Sakib",25);
+
+console.log(sakib());
