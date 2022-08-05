@@ -71,7 +71,7 @@ var rahim = Person("Rahim", 35);
 console.log(rahim.father.printName());
 
 //explicit binding
-let printName = function () {
+let printName1 = function () {
   return this.name;
 };
 
@@ -80,4 +80,21 @@ var Rahim = {
   age: 25,
 };
 
-console.log(printName.call(Rahim));
+console.log(printName1.call(Rahim));
+
+//explicit binding
+
+let v1 = "Kind";
+let v2 = "Honest";
+let v3 = "Hard Working";
+
+let printName = function (v1, v2, v3) {
+  return `${this.name} is ${v1} , ${v2} and ${v3}`;
+};
+
+var Rahim = {
+  name: "Rahim",
+  age: 25,
+};
+
+console.log(printName.call(Rahim, v1, v2, v3));
